@@ -1,0 +1,116 @@
+html, body, ul, li {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  inset: 0;
+  background-color: #5c94fc;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  z-index: 1;
+  touch-action: none;
+}
+
+body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  touch-action: none;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+.mobile-controls {
+  display: none;
+}
+
+.mobile-controls.is-visible {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: none;
+}
+
+.mobile-controls.is-portrait-rotated {
+  inset: auto;
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
+
+.mobile-dpad,
+.mobile-actions {
+  position: absolute;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.mobile-dpad {
+  left: max(16px, env(safe-area-inset-left));
+}
+
+.mobile-actions {
+  right: max(16px, env(safe-area-inset-right));
+}
+
+.mobile-key {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 58px;
+  height: 58px;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 13px;
+  background: rgba(0, 0, 0, 0.58);
+  color: #fff;
+  font: 800 22px/1 monospace;
+  text-align: center;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.55);
+  touch-action: none;
+}
+
+.mobile-key.action {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.mobile-key small {
+  display: block;
+  margin-top: 3px;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+}
+
+.mobile-key.is-pressed {
+  transform: translateY(2px) scale(0.96);
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+}
+
+@media (pointer: coarse) and (orientation: landscape) {
+  body {
+    overscroll-behavior: none;
+  }
+}
